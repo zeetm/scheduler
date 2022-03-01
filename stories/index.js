@@ -15,6 +15,9 @@ import InterviewerListItem from  "components/InterviewerListItem";
 
 import InterviewerList from "components/InterviewerList";
 
+import Appointment from "components/Appointment/index.js";
+
+
 //Button Stories
 
 storiesOf("Button", module)
