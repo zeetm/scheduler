@@ -29,10 +29,15 @@ export default function Application(props) {
         id={appointment.id}
         time={appointment.time}
         interview={interview}
-        interviewers={interviewers}
+        interviewers={interviewersForDay}
+        bookInterview={bookInterview}
       />
     );
   })
+
+  function bookInterview(id, interview) {
+    console.log(id, interview);
+  }
 
   useEffect(() => {
     Promise.all([
