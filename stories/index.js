@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from 'react'
 
 import { storiesOf } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
@@ -30,8 +30,6 @@ import Status from "components/Appointment/Status";
 import Error from "components/Appointment/Error";
 
 import Form from "components/Appointment/Form";
-
-import React, { Fragment } from 'react'
 
 
 //Button Stories
