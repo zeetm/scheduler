@@ -20,6 +20,28 @@ export default function Application(props) {
   const appointments = getAppointmentsForDay(state, state.day);
   //const interviewers = getInterviewersForDay(state, state.day);
 
+  //bookInterview function
+  function bookInterview(id, interview) {
+    const appointment = {
+      ...state.appointments[id],
+      interview: { ...interview}
+    };
+    const appointments = {
+      ...state.appointments,
+      [id]: appointment
+    };
+    const apiPutPromise =  
+    axios.put(`/api/appointments/${id}`, appointment)
+    .then(response => {
+      setState({
+        ...state,
+        appointments
+      })
+    })
+    return apiPutPromise;
+  };
+
+
   const appointmentList = appointments.map( appointment => {
     const interview = getInterview(state, appointment.interview)
   
@@ -35,23 +57,7 @@ export default function Application(props) {
     );
   })
 
-  function bookInterview(id, interview) {
-    console.log(id, interview);
-    const appointment = {
-      ...state.appointments[id],
-      interview: { ...interview }
-    }
-    const appointments = {
-      ...state.appointments,
-      [id]: appointment
-    };
-    setState({
-      ...state,
-      appointments
-    });
-    return axios.put(`/api/appointments/${id}`, {interview})
-    .then(response => setState(state => ({ ...state, appointments })));
-  }
+
 
   useEffect(() => {
     Promise.all([
