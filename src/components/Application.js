@@ -30,16 +30,41 @@ export default function Application(props) {
       ...state.appointments,
       [id]: appointment
     };
-    const apiPutPromise =  
-    axios.put(`/api/appointments/${id}`, appointment)
+  
+    return axios.put(`/api/appointments/${id}`, appointment)
     .then(response => {
       setState({
         ...state,
         appointments
       })
     })
-    return apiPutPromise;
+  
   };
+
+  //cancelInterview function
+  function cancelInterview(id) {
+
+    const nullAppointment = {
+      ...state.appointments[id],
+      interview: {...state.appointments[id].interview}
+    }
+  
+    nullAppointment.interview.interviewer = null;
+    nullAppointment.interview.student = null;
+  
+    const appointments = {
+      ...state.appointments,
+      [id]: nullAppointment
+    };
+  
+    return axios.delete(`api/appointments/${id}`)
+    .then(response => {
+      setState({
+        ...state,
+        appointments
+      })
+    })
+  }
 
 
   const appointmentList = appointments.map( appointment => {
@@ -53,6 +78,7 @@ export default function Application(props) {
         interview={interview}
         interviewers={getInterviewersForDay(state, state.day)}
         bookInterview={bookInterview}
+        cancelInterview={cancelInterview}
       />
     );
   })
