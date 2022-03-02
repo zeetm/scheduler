@@ -16,11 +16,11 @@ export function getInterview(state, interview) {
     return null
   }
 
-  const interviewId = { 
+  const interviewObj = { 
     student: interview.student,
   }
 
-  interviewId.interviewer = state.interviewers[interview.interviewer]
+  interviewObj.interviewer = state.interviewers[interview.interviewer]
 
-  return interviewId;
+  return interviewObj;
 }
