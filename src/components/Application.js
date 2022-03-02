@@ -20,10 +20,23 @@ export default function Application(props) {
 
   const appointments = getAppointmentsForDay(state, state.day);
 
+  const appointmentList = appointments.map( appointment => {
+    const interview = getInterview(state, appointment.interview)
+  
+    return(
+      <Appointment 
+        key={appointment.id}
+        id={appointment.id}
+        time={appointment.time}
+        interview={interview}
+      />
+    );
+  })
+
   useEffect(() => {
     Promise.all([
       axios.get("/api/days"),
-      axios.get("/api/appointments")
+      axios.get("/api/appointments"),
       axios.get("/api/interviewers")
     ])
     .then(response => {
