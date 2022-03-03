@@ -17,7 +17,8 @@ export default function Application(props) {
 
   const setDay = day => setState({...state, day});
 
-  const appointments = getAppointmentsForDay(state, state.day);
+  const appointments = getAppointmentsForDay(state, state.day);console.log(appointments);
+  
   //const interviewers = getInterviewersForDay(state, state.day);
 
   //bookInterview function
@@ -43,15 +44,10 @@ export default function Application(props) {
 
   //cancelInterview function
   function cancelInterview(id) {
-
     const nullAppointment = {
       ...state.appointments[id],
-      interview: {...state.appointments[id].interview}
+      interview: null
     }
-  
-    nullAppointment.interview.interviewer = null;
-    nullAppointment.interview.student = null;
-  
     const appointments = {
       ...state.appointments,
       [id]: nullAppointment
@@ -75,8 +71,7 @@ export default function Application(props) {
         key={appointment.id}
         id={appointment.id}
         time={appointment.time}
-        interview={interview}
-        interviewers={getInterviewersForDay(state, state.day)}
+        interview={getInterview(state, appointment.interview)}        interviewers={getInterviewersForDay(state, state.day)}
         bookInterview={bookInterview}
         cancelInterview={cancelInterview}
       />
