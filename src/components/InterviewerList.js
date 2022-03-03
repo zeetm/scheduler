@@ -2,6 +2,8 @@ import React, { Fragment } from "react";
 import InterviewerListItem from "components/InterviewerListItem"
 import "components/InterviewerList.scss"
 import "components/InterviewerListItem.scss";
+import PropTypes from 'prop-types'; 
+
 	
 
 export default function InterviewerList(props) {
@@ -27,4 +29,9 @@ export default function InterviewerList(props) {
       </section>  
     </React.Fragment>
   )
+};
+
+
+InterviewerList.propTypes = {
+  interviewers: PropTypes.array.isRequired
 };
