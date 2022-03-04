@@ -25,7 +25,7 @@ npm run storybook
 
 Homepage 
 
-!["Homepage"](https://github.com/zeetm/scheduler/blob/master/docs/book.png?raw=true)
+!["Homepage"](https://github.com/zeetm/scheduler/blob/master/docs/main.png?raw=true)
 
 
 Book an Inverview
