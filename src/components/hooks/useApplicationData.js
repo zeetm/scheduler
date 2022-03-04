@@ -3,6 +3,7 @@ import axios from "axios";
 const SET_DAY = "SET_DAY";
 const SET_APPLICATION_DATA = "SET_APPLICATION_DATA";
 const SET_INTERVIEW = "SET_INTERVIEW";
+
 function reducer(state, action) {
   switch (action.type) {
     case SET_DAY:

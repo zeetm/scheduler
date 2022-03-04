@@ -1,10 +1,9 @@
-import React, { Fragment } from "react";
+import React from "react";
 import InterviewerListItem from "components/InterviewerListItem"
 import "components/InterviewerList.scss"
 import "components/InterviewerListItem.scss";
 import PropTypes from 'prop-types'; 
 
-	
 
 export default function InterviewerList(props) {
   const interviewers = props.interviewers.map( interviewer => {
@@ -20,17 +19,16 @@ export default function InterviewerList(props) {
   });
 
   return (
-    <React.Fragment>
+    
       <section className="interviewers">
         <h4 className="interviewers__header text--light">Interviewer</h4>
         <ul className="interviewers__list">
           {interviewers}
         </ul>
       </section>  
-    </React.Fragment>
+    
   )
 };
-
 
 InterviewerList.propTypes = {
   interviewers: PropTypes.array.isRequired

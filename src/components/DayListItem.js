@@ -2,7 +2,6 @@ import React from "react";
 import "components/DayListItem.scss";
 import classnames from "classnames";
 
-
 export default function DayListItem(props) {
   
   const dayClass = classnames("day-list__item", {
@@ -20,7 +19,6 @@ export default function DayListItem(props) {
         return `${numberOfSpots} spots remaining`
     }
   }
-
   return (
     <li className={dayClass}
         onClick={() => props.setDay(props.name)}>
