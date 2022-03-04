@@ -21,3 +21,10 @@ npm test
 ```sh
 npm run storybook
 ```
+## Screenshots
+
+!["Homepage"]https://github.com/zeetm/scheduler/blob/master/docs/book.png?raw=true
+
+!["Book an Interview"]https://github.com/zeetm/scheduler/blob/master/docs/book.png?raw=true
+
+!["Cancel an Interview"]https://github.com/zeetm/scheduler/blob/master/docs/cancel.png?raw=true
